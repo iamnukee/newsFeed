@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+ 	<title>NHL News</title>
+	<!-- Import jQuery -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="app.js"></script>
+	<style>
+body {
+			max-width: 800px;
+			margin: auto;
+			text-align: center;
+		}
+		/* reset styling */
+		body * {
+			margin: 0;
+			padding: 0;
+		}
+		
+		#header * {
+			display: inline-block;
+			vertical-align: middle;
+			padding-left: 1em;
+			padding-right: 1em;
+		}
+		
+		.item {
+			border: 1px solid red;
+			padding: 1em;
+			margin: 0.5em;
+			text-align: left;
+		}
+		
+		.item h2 {
+			font-size: 120%;
+			padding-bottom: 0.2em;
+		}
+		
+		/* not used right now because the descriptions are the same as the titles */
+		.item p {
+			padding-top: 0.2em;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="header">
+		<img id="logo" /><h1>Hockey News</h1>
+	</div>
+
+	<div class="container">
+		<form class = "col" id="login" >
+			<div class="form-group">
+			<label for="username">username</label>
+			<input type="text" name="username">
+			</div>
+			<div class="form-group">
+			<label for="pass">password</label>
+			<input type="password" name="password">
+			</div>
+			<button class="btn btn-primary" type="button" id="login">log In</button>
+			<button class="btn btn-primary" type="button" id="register">register</button>
+			</form>
+</div>
+
+	<div id = "feeds">
+		<ul>
+		<input type="checkbox" name="NFL" value="nfl" checked> NFL <br>
+		<input type="checkbox" name="NHL" value="nhl" checked> NHL<br>
+		<input type="checkbox" name="NBA" value="nba" checked> NBA<br>
+		</ul>
+	</div>
+
+	<div id="content">
+		<p>No data has been loaded.</p>
+	</div>
+ 
+
+</body>
+</html>
