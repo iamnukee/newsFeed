@@ -6,12 +6,19 @@ window.onload = function(){
 
 function init(url){
 	//NHL URL for ESPN RSS feed
-	$('#feeds').hide();
+	//$('#feedlist').hide();
+
+	if (localStorage.getItem('username') && localStorage.getItem('password')) {
+		getFavorites(localStorage.getItem('username'), localStorage.getItem('password'));
+	}
+
 	document.querySelector("#content").innerHTML = "<b>Loading news...</b>";
 	$("#content").fadeIn(250);
 	//fetch the data
 	load();
 	$('#feeds :checkbox').change(load);
+	$('#login').click(logIn);
+	$('#register').click(register);
 }
 
 var stories = [];
@@ -80,8 +87,8 @@ function populate(stories){
 function logIn() {
   var username = $('input[name="username"]')[0].value;
   var password = $('input[name="password"]')[0].value;
-
-  getFavorites(username, password);
+  $('feedlist').show();
+  $('login-form').hide();
 }
 
 function getFavorites(username, password) {
@@ -93,8 +100,8 @@ function getFavorites(username, password) {
     localStorage.setItem('username', username);
     localStorage.setItem('password', password);
     favorites = data;
-    $('#loginForm').hide();
-    $('#newsFeed').show();
+    $('#login-form').hide();
+    $('#feedlist').show();
   });
 }
 
